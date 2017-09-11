@@ -5,17 +5,18 @@ class Draft < Formula
   url "https://github.com/Azure/draft/releases/download/v0.6.0/draft-v0.6.0-darwin-amd64.tar.gz"
   sha256 "44f758fde26eaaf40d2cde2edb87cec0f0669dfeaf451a86d8a6788097dba187"
 
-  depends_on "kubernetes-helm"
+  depends_on "kubernetes-helm" => :recommended
 
   def install
-    bin.install "draft"
+    libexec.install name
+    (bin/name).write_env_script(libexec/name, :DRAFT_HOME => etc/name)
   end
 
   def post_install
-    system "#{bin}/draft", "init", "--client-only"
+    system bin/name, "init", "--client-only"
   end
 
   test do
-    system "#{bin}/draft", "version", "--client"
+    system bin/name, "version", "--client"
   end
 end
