@@ -12,8 +12,6 @@ class Draft < Formula
   end
 
   def post_install
-    system "minikube", "config", "set", "ingress", "true"
-    system "minikube", "config", "set", "registry", "true"
     system "#{bin}/draft", "init", "--client-only"
   end
 
