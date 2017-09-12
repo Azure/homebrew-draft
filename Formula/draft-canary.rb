@@ -15,7 +15,9 @@ class DraftCanary < Formula
   end
 
   def self.sha256_checksum
-    `curl --silent https://azuredraft.blob.core.windows.net/draft/draft-canary-darwin-amd64.tar.gz.sha256`.split.first
+    @sha256_checksum ||= begin
+      `curl --silent https://azuredraft.blob.core.windows.net/draft/draft-canary-darwin-amd64.tar.gz.sha256`.split.first
+    end
   end
 
   sha256 sha256_checksum
