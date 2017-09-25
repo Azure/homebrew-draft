@@ -6,7 +6,7 @@ class Draft < Formula
   sha256 "d413095540078b3d0ac3cbc13c4c214127b04a7126e90cb7cb624763002bf051"
 
   depends_on "kubernetes-helm" => :recommended
-  conflicts_with 'draft', :because => 'multiple version'
+  conflicts_with 'draft-canary', :because => 'multiple version'
 
   def install
     libexec.install name

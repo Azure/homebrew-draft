@@ -6,7 +6,7 @@ class DraftCanary < Formula
   homepage 'https://github.com/Azure/draft'
   url 'https://azuredraft.blob.core.windows.net/draft/draft-canary-darwin-amd64.tar.gz'
 
-  conflicts_with 'draft-canary', :because => 'multiple version'
+  conflicts_with 'draft', :because => 'multiple version'
 
   def self.latest_draft_revision
     @latest_draft_revision ||= begin
