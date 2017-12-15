@@ -9,12 +9,7 @@ class Draft < Formula
   conflicts_with 'draft-canary', :because => 'multiple version'
 
   def install
-    libexec.install name
-    (bin/name).write_env_script(libexec/name, :DRAFT_HOME => etc/name)
-  end
-
-  def post_install
-    system bin/name, "init", "--client-only"
+    bin.install name
   end
 
   test do

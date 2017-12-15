@@ -24,12 +24,7 @@ class DraftCanary < Formula
   version "canary-#{latest_draft_revision}"
 
   def install
-    libexec.install 'draft'
-    (bin/'draft').write_env_script(libexec/'draft', :DRAFT_HOME => etc/'draft')
-  end
-
-  def post_install
-    system bin/'draft', 'init', '--client-only'
+    bin.install 'draft'
   end
 
   test do
