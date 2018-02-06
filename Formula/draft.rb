@@ -6,7 +6,6 @@ class Draft < Formula
   sha256 "79162e6a133029fbc9c447aae8c3bfdec21390e53d1ae0d74651813849c6b6d5"
 
   depends_on "kubernetes-helm" => :recommended
-  conflicts_with 'draft-canary', :because => 'multiple version'
 
   def install
     bin.install name
