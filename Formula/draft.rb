@@ -3,7 +3,7 @@ class Draft < Formula
   homepage "https://github.com/Azure/draft"
   version "0.11.0"
   url "https://azuredraft.blob.core.windows.net/draft/draft-v#{version}-darwin-amd64.tar.gz"
-  sha256 "ce7e60b98ab82d6c5590e365aed5d53dd421dedf726e68436ced57a80094a1dc"
+  sha256 "66ebe30fb2fbed704e1b45ee5192f731eff3c84fdd1b44a50745db30079acb8f"
 
   depends_on "kubernetes-helm" => :recommended
 
