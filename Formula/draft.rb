@@ -7,6 +7,25 @@ class Draft < Formula
 
   depends_on "kubernetes-helm" => :recommended
 
+  def caveats; <<~EOS
+    Be aware that Draft is currently experimental and does not have a stable
+    release yet. We make no backwards-compatible guarantees between releases.
+
+    When upgrading, make sure to `rm -rf ~/.draft` before bootstrapping Draft
+    according to the installation guide:
+
+      https://github.com/Azure/draft/blob/v#{version}/docs/install.md
+
+    If you bootstrapped an application using `draft create`, you'll also
+    want to remove the files `draft create` generated before running
+    `draft create && draft up` again.
+
+    Please make sure to read the release notes for further information:
+
+      https://github.com/Azure/draft/releases/tag/v#{version}
+    EOS
+  end
+
   def install
     bin.install name
   end
