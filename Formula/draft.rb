@@ -1,9 +1,9 @@
 class Draft < Formula
   desc "A tool for developers to create cloud-native applications on Kubernetes."
   homepage "https://github.com/Azure/draft"
-  version "0.15.0"
+  version "0.16.0"
   url "https://azuredraft.blob.core.windows.net/draft/draft-v#{version}-darwin-amd64.tar.gz"
-  sha256 "c1b3da0d2dd3e86bbd4aa259c91710bdf94f711d37ff98ba4279977c22b90fbe"
+  sha256 "e7a7c8c0d0d2921a6136740dae7803ef79ce25a7f79b3bcde5bbe5f54d2e74d4"
 
   depends_on "kubernetes-helm" => :recommended
 
