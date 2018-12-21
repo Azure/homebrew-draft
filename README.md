@@ -7,7 +7,7 @@ This is a homebrew repo for installing Draft.
 ```
 $ brew cask install minikube
 $ brew tap Azure/draft
-$ brew install Azure/draft/draft
+$ brew install draft
 ```
 
 ## Contributing
