@@ -1,11 +1,10 @@
 # Draft Homebrew Repository
 
-This is a homebrew repo for installing Draft.
+This is a homebrew repo for installing [Draft](https://github.com/Azure/draft).
 
 ## Usage
 
 ```
-$ brew cask install minikube
 $ brew install azure/draft/draft
 ```
 
