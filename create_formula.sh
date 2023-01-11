@@ -41,7 +41,7 @@ class Draft < Formula
   homepage \"https://github.com/Azure/draft\"
   version \"$RELEASE_NAME\"
   url \"https://github.com/Azure/draft/archive/refs/tags/$RELEASE_NAME.tar.gz\"
-  sha256 \"c6ccdd516fb7a35eb90dfee59c694686240da6ed96c12956e06687eb84384508\"
+  sha256 \"$SHA\"
   license \"MIT\"
 
   depends_on \"go\" => [:build,\"1.18\"]
