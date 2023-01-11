@@ -9,6 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create New Formula
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           ./create_formula.sh
       - name: Add & Commit

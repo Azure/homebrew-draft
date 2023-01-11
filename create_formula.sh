@@ -15,6 +15,10 @@ gh api graphql --jq '.data.repository.releases.nodes[0].name' -f query='
 
 RELEASE_NAME=$(cat $TEMP_PATH/release.txt | tr -d '"')
 echo "RELEASE_NAME: $RELEASE_NAME"
+if [ "$RELEASE_NAME" = "" ]; then
+    echo "RELEASE_NAME is empty."
+    exit 1
+fi
 
 RELEASE_TARBALL_NAME=$(echo "$RELEASE_NAME.tar.gz")
 echo "RELEASE_NAME: $RELEASE_TARBALL_NAME"
