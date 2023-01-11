@@ -1,0 +1,19 @@
+name: Update Draft Tap
+on:
+  workflow_dispatch:
+    
+  schedule:
+    - // At the end of every day
+      0 0 * * *
+jobs:
+  update-tap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create New Formula
+        run: |
+          ./create_formula.sh
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.1.1
+        with:
+          message: "Update draft formula"
