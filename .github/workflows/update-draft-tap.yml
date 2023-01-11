@@ -2,8 +2,7 @@ name: Update Draft Tap
 on:
   workflow_dispatch:
   schedule:
-    - // At the end of every day
-      0 0 * * *
+    - 0 0 * * *
 jobs:
   update-tap:
     runs-on: ubuntu-latest
