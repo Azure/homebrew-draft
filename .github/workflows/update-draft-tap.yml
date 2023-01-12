@@ -16,7 +16,6 @@ jobs:
       - name: Validate Formula
         run: |
           brew remove go@1.17
-          brew install go@1.18
           brew install --build-from-source ./Formula/draft.rb
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.1.1
