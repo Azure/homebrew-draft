@@ -30,8 +30,12 @@ TARBALL_PATH=$(echo "$TEMP_PATH/$RELEASE_TARBALL_NAME")
 echo "downloading tarball to $TARBALL_PATH"
 curl -sL $RELEASE_TARBALL_URL --output $TARBALL_PATH
 
-SHA=$(sha256sum $TARBALL_PATH | head -c 64)
+SHA=$(shasum -a 256 $TARBALL_PATH | head -c 64)
 echo "SHA256: $SHA"
+if [ "$SHA" = "" ]; then
+    echo "SHA is empty."
+    exit 1
+fi
 
 TEMP_FORMULA_PATH=$(echo "$TEMP_PATH/draft.new.rb")
 
