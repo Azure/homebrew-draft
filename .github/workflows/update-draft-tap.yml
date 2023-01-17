@@ -1,0 +1,23 @@
+name: Update Draft Tap
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  update-tap:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create New Formula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ./create_formula.sh
+      - name: Validate Formula
+        run: |
+          brew remove go@1.17
+          brew install --build-from-source ./Formula/draft.rb
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.1.1
+        with:
+          message: "Update draft formula"
