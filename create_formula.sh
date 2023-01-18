@@ -13,6 +13,27 @@ gh api graphql --jq '.data.repository.releases.nodes[0].name' -f query='
   }
 }'  > $TEMP_PATH/release.txt
 
+
+gh api graphql --jq '.data.repository.releases.nodes[0].tagCommit.oid' -f query='
+{
+   repository(owner: "azure", name: "draft") {
+     releases(first: 1) {
+       nodes {
+         tagCommit {
+          oid
+        }
+       }
+     }
+   }
+ }' > $TEMP_PATH/commit_hash.txt 
+
+COMMIT_HASH=$(cat $TEMP_PATH/commit_hash.txt| tr -d '"')
+echo "COMMIT_HASH: $COMMIT_HASH"
+if [ "$COMMIT_HASH" = "" ]; then
+    echo "COMMIT_HASH is empty."
+    exit 1
+fi
+
 RELEASE_NAME=$(cat $TEMP_PATH/release.txt | tr -d '"')
 echo "RELEASE_NAME: $RELEASE_NAME"
 if [ "$RELEASE_NAME" = "" ]; then
@@ -52,7 +73,10 @@ class Draft < Formula
 
   def install
     ENV.deparallelize
-    system \"make\", \"all\"
+    system \"GO11MODULE=on\"
+    system \"make\", \"go-generate\"
+    system \"make\", \"vendor\"
+    system \"go\", \"build\",\"-v\",\"-ldflags\",\"-X github.com/Azure/draft/cmd.VERSION=%s\" % [version],\"-o\",\".\"
     system \"mkdir\",\"#{prefix}/bin\"
     system \"cp\", \"draft\", \"#{prefix}/bin/draft\"
   end
