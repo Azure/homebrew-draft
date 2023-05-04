@@ -4,7 +4,7 @@ class Draft < Formula
   homepage "https://github.com/Azure/draft"
   version "v0.0.32"
   url "https://github.com/Azure/draft/archive/refs/tags/v0.0.32.tar.gz"
-  sha256 "089b22468660d50a6152806ff548cbcbb337fdf078ce1101f5cf9b836f77ef59"
+  sha256 "eaeae79cacb1717adf1749ffb666e9ae7a2daddc7b5669c6629ed488228e4094"
   license "MIT"
 
   depends_on "go" => [:build,"1.18"]
