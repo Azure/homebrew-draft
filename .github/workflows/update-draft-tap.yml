@@ -15,9 +15,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./create_formula.sh
-      - name: Unlink go 
-        run: |
-          which go && brew unlink go@1.20
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
       - name: Validate Formula
         run: |
           brew install --build-from-source ./Formula/draft.rb
