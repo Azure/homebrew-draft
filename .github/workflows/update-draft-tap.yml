@@ -19,7 +19,7 @@ jobs:
         run: |
           brew update
           brew install go
-          brew link --overrite go
+          brew link --overwrite go
       - name: Validate Formula
         run: |
           brew install --build-from-source ./Formula/draft.rb
