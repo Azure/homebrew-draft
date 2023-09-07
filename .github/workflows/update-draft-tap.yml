@@ -18,7 +18,8 @@ jobs:
       - name: upgrade go
         run: |
           brew update
-          brew upgrade go
+          brew install go
+          brew link --overrite go
       - name: Validate Formula
         run: |
           brew install --build-from-source ./Formula/draft.rb
