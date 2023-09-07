@@ -17,7 +17,7 @@ jobs:
           ./create_formula.sh
       - name: Unlink go 
         run: |
-          which go && brew unlink go
+          which go && brew uninstall --force go
       - name: Validate Formula
         run: |
           brew install --build-from-source ./Formula/draft.rb
