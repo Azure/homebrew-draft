@@ -1,6 +1,8 @@
 name: Update Draft Tap
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
   schedule:
     - cron: "0 0 * * *"
 jobs:
@@ -20,6 +22,7 @@ jobs:
         run: |
           brew install --build-from-source ./Formula/draft.rb
       - name: Add & Commit
+        if: github.event_name != 'pull_request'
         uses: EndBug/add-and-commit@v9.1.1
         with:
           message: "Update draft formula"
