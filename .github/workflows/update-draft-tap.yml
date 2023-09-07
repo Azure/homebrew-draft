@@ -2,7 +2,7 @@ name: Update Draft Tap
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main]
+    branches: [master]
   schedule:
     - cron: "0 0 * * *"
 jobs:
