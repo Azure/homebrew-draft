@@ -15,9 +15,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./create_formula.sh
+      - name: upgrade go
+        run: |
+          brew update
+          brew install go
+          brew link --overwrite go
       - name: Validate Formula
         run: |
-          brew install --build-from-source --verbose draft
+          brew install --build-from-source --verbose ./Formula/draft.rb
       - name: Add & Commit
         if: github.event_name != 'pull_request'
         uses: EndBug/add-and-commit@v9.1.1
