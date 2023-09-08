@@ -60,8 +60,7 @@ fi
 
 TEMP_FORMULA_PATH=$(echo "$TEMP_PATH/draft.new.rb")
 
-echo """
-class Draft < Formula
+echo """class Draft < Formula
   desc \"Draft is a tool that creates the miminum required files for your Kubernetes deployments.\"
   homepage \"https://github.com/Azure/draft\"
   version \"$RELEASE_NAME\"

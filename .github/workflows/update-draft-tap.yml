@@ -1,11 +1,13 @@
 name: Update Draft Tap
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [master]
   schedule:
     - cron: "0 0 * * *"
 jobs:
   update-tap:
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
       - name: Create New Formula
@@ -13,10 +15,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./create_formula.sh
+      - name: upgrade go
+        run: |
+          brew update
+          brew install go
+          brew link --overwrite go
       - name: Validate Formula
         run: |
-          brew install --build-from-source ./Formula/draft.rb
+          brew install --build-from-source --verbose ./Formula/draft.rb
       - name: Add & Commit
+        if: github.event_name != 'pull_request'
         uses: EndBug/add-and-commit@v9.1.1
         with:
           message: "Update draft formula"
