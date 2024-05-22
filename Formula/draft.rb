@@ -1,9 +1,9 @@
 class Draft < Formula
   desc "Draft is a tool that creates the miminum required files for your Kubernetes deployments."
   homepage "https://github.com/Azure/draft"
-  version "v0.0.33"
-  url "https://github.com/Azure/draft/archive/refs/tags/v0.0.33.tar.gz"
-  sha256 "71e0785481a68626d40b80a23a18440a89abf12c3119a2036f7ac1baea2841a5"
+  version "v0.0.35"
+  url "https://github.com/Azure/draft/archive/refs/tags/v0.0.35.tar.gz"
+  sha256 "9131047d625ea9e0a220af356769ccee9ccd05c6ec5364d56477c8f9698971de"
   license "MIT"
 
   depends_on "go" => [:build,"1.18"]
