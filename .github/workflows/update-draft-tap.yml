@@ -26,6 +26,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./create_formula.sh
+      - name: print new formula
+        run: |
+          cat ./Formula/draft.rb
       - name: upgrade go
         run: |
           brew update
