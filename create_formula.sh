@@ -68,7 +68,7 @@ echo """class Draft < Formula
   sha256 \"$SHA\"
   license \"MIT\"
 
-  depends_on \"go\" => [:build,\"1.18\"]
+  depends_on \"go\" => [:build,\"1.22\"]
 
   def install
     ENV.deparallelize
