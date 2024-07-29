@@ -32,6 +32,9 @@ jobs:
           brew upgrade
           brew install go
           brew link --overwrite go
+      - name: Print Homebrew Version
+        run : |
+          brew -v
       - name: Validate Formula
         run: |
           brew install --build-from-source --verbose $(pwd)/Formula/draft.rb
