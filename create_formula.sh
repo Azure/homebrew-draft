@@ -42,7 +42,7 @@ if [ "$RELEASE_NAME" = "" ]; then
 fi
 
 RELEASE_TARBALL_NAME=$(echo "$RELEASE_NAME.tar.gz")
-echo "RELEASE_NAME: $RELEASE_TARBALL_NAME"
+echo "RELEASE_TARBALL_NAME: $RELEASE_TARBALL_NAME"
 
 RELEASE_TARBALL_URL=$(echo "https://github.com/Azure/draft/archive/refs/tags/$RELEASE_TARBALL_NAME")
 echo "RELEASE_TARBALL_URL: $RELEASE_TARBALL_URL"
@@ -68,13 +68,12 @@ echo """class Draft < Formula
   sha256 \"$SHA\"
   license \"MIT\"
 
-  depends_on \"go\" => [:build,\"1.18\"]
+  depends_on \"go\" => [:build,\"1.22\"]
 
   def install
     ENV.deparallelize
     system \"GO11MODULE=on\"
     system \"make\", \"go-generate\"
-    system \"make\", \"vendor\"
     system \"go\", \"build\",\"-v\",\"-ldflags\",\"-X github.com/Azure/draft/cmd.VERSION=%s\" % [version],\"-o\",\".\"
     system \"mkdir\",\"#{prefix}/bin\"
     system \"cp\", \"draft\", \"#{prefix}/bin/draft\"

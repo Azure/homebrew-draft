@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   update-tap:
-    runs-on: macos-13
+    runs-on: macos-latest
     permissions:
       contents: write
       pull-requests: write
@@ -26,14 +26,21 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ./create_formula.sh
+      - name: print new formula
+        run: |
+          cat ./Formula/draft.rb
       - name: upgrade go
         run: |
           brew update
+          brew upgrade
           brew install go
           brew link --overwrite go
+      - name: Print Homebrew Version
+        run : |
+          brew --version
       - name: Validate Formula
         run: |
-          brew install --build-from-source --verbose ./Formula/draft.rb
+          brew install --verbose ./Formula/draft.rb
       - name: Add & Commit
         if: github.event_name != 'pull_request'
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
