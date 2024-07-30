@@ -41,8 +41,8 @@ jobs:
       - name: Validate Formula
         run: |
           brew install --verbose ./Formula/draft.rb
-      - name: Add & Commit
+      - name: Create Pull Request
         if: github.event_name != 'pull_request'
-        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        uses: peter-evans/create-pull-request@v6
         with:
-          message: "Update draft formula"
+          commit-message: "Update draft formula"
