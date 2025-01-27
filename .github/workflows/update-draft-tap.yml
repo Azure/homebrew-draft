@@ -6,7 +6,8 @@ on:
   schedule:
     - cron: "0 0 * * *"
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   update-tap:
@@ -46,3 +47,4 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Update draft formula"
+          token: ${{ secrets.ghtoken }}
