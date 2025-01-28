@@ -41,7 +41,7 @@ jobs:
           brew --version
       - name: Validate Formula
         run: |
-          brew install --verbose $(pwd)/Formula/draft.rb
+          HOMEBREW_NO_INSTALL_FROM_API=1 brew install --build-from-source --verbose $(pwd)/Formula/draft.rb
       - name: Create Pull Request
         if: github.event_name != 'pull_request'
         uses: peter-evans/create-pull-request@v6
