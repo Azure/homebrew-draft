@@ -73,7 +73,6 @@ echo """class Draft < Formula
   def install
     ENV.deparallelize
     system \"GO11MODULE=on\"
-    system \"make\", \"go-generate\"
     system \"go\", \"build\",\"-v\",\"-ldflags\",\"-X github.com/Azure/draft/cmd.VERSION=%s\" % [version],\"-o\",\".\"
     system \"mkdir\",\"#{prefix}/bin\"
     system \"cp\", \"draft\", \"#{prefix}/bin/draft\"
