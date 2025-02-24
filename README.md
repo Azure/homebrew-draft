@@ -1,4 +1,6 @@
-# Draft Homebrew Repository
+# (Deprecated) Draft Homebrew Repository
+
+## This repo is deprecated as the homebrew-core [includes draft](https://github.com/Homebrew/homebrew-core/pull/198839)
 
 This is a homebrew repo for installing [Draft](https://github.com/Azure/draft).
 
